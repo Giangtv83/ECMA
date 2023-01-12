@@ -1,5 +1,9 @@
+import Header from "../components/Header";
+
 const AboutPage = () => {
-    return `<h1>About page</h1>`;
+    return `
+    ${Header()}
+    <h1>About page</h1>`;
 };
 
 export default AboutPage;

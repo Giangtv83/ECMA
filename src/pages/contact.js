@@ -1,5 +1,9 @@
+import Header from "../components/Header";
+
 const ContactPage = () => {
-    return `<h1>Contact page</h1>`;
+    return `
+    ${Header()}
+    <h1>Contact page</h1>`;
 };
 
 export default ContactPage;

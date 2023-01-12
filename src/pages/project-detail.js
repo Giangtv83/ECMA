@@ -5,7 +5,16 @@ const ProjectDetailPage = ({ data: { projectId } }) => {
     if (!currentProject) return `Loading...`;
     return `
     <h1>Project Detail page</h1>
-    ${currentProject.name}`;
+    ${currentProject.name}
+    <hr/>
+    ${currentProject.teams
+            ? `
+        <h2>Teams</h2>
+        <ul>${currentProject.teams.map((member) => `<li>${member.name}</li>.`).join("")}</ul>
+        `
+            : "Khong co team"
+        }
+    `;
 };
 
 export default ProjectDetailPage;
