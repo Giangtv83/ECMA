@@ -1,23 +1,27 @@
 import './style.css'
-import javascriptLogo from './javascript.svg'
-import { setupCounter } from './counter.js'
 
-document.querySelector('#app').innerHTML = /* html */ `
-  < div >
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-      <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
-    </a>
-    <h1>Hello Vite!</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite logo to learn more
-    </p>
-  </ >
-  `
+import HomePage from './src/pages/home';
+import AboutPage from './src/pages/about';
+import NotFoundPage from './src/pages/not-found';
+import PostDetailPage from './src/pages/post-detail';
+import ContactPage from './src/pages/contact';
+import PostsPage from './src/pages/posts';
+import ProjectDetailPage from './src/pages/project-detail';
+import ProjectPage from './src/pages/projects';
+import { render, router } from './src/lib';
 
-setupCounter(document.querySelector('#counter'))
+
+const app = document.querySelector("#app");
+
+
+router.on("/", () => render(HomePage, app));
+router.on("/about", () => render(AboutPage, app));
+router.on("/contact", () => render(ContactPage, app));
+router.on("/post", () => render(PostsPage, app));
+router.on("/postdetail", () => render(PostDetailPage, app));
+router.on("/projects", () => render(ProjectPage, app));
+router.on("/project/:projectId", (params) => render(ProjectDetailPage(params), app));
+router.notFound(() => render(NotFoundPage, app));
+
+
+router.resolve();

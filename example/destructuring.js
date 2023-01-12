@@ -1,26 +1,33 @@
-const firstName = "Tran";
-const lastName = "Van Giang";
-
-console.log(`Name ${firstName} ${lastName}`)
-
-const [a, ...b] = [1, 2, 3, 4, 5, 6, 7, 8]
-console.log(a, b); //1, 2, [3, 4, 5]
-
-//oject = { key:value }
-const person = { //oject literal
+const person = {
     name: "John",
-    age: 20,
-    add: {
-        city: "Ha Noi",
-    }
+    age: 30,
+    address: {
+        city: "New York",
+    },
 };
-//const myName = person.name;
-const { name, age, add: { city } } = person;
-console.log(city);
 
-function showInfo({ name, age, add: { city } }) {
+// const name = person.name;
+// const age = person.age;
+// const address = person.address;
+// const {
+//     name,
+//     age,
+//     address: { city },
+// } = person;
+
+function showInfo({ name, age, address: { city } }) {
     console.log(name, age, city);
 }
 showInfo(person);
 
-const [firstValue, secondValue] = [1, 2];
+function useState(initialState) {
+    let value = initialState;
+    const getValue = () => value;
+    const setValue = (newValue) => (value = newValue);
+    return [getValue, setValue];
+}
+const [count, setCount] = useState(10);
+
+console.log(count()); // 10
+setCount(20);
+console.log(count()); // 20
