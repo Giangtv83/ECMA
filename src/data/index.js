@@ -1,4 +1,11 @@
-const ProjectFake = [
+const menus = [
+    { id: 1, name: "Trang chu", link: "/" },
+    { id: 1, name: "Du an", link: "/projects" },
+    { id: 3, name: "Bai viet", link: "/posts" },
+    { id: 4, name: "Lien he", link: "/contact" },
+];
+
+const projectsFake = [
     {
         id: 1,
         name: "Du an 1",
@@ -11,4 +18,4 @@ const ProjectFake = [
     { id: 2, name: "Du an mau", auther: "Giang" },
     { id: 3, name: "Du an TN", auther: "Hien" },
 ];
-export default ProjectFake;
+export { projectsFake, menus };

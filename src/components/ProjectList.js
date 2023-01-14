@@ -1,13 +1,9 @@
-import ProjectFake from "../data"
+import ProjectItem from "./ProjectItem";
 
-const ProjectList = () => {
+const ProjectList = ({ projects }) => {
     return `
     <div>
-    ${ProjectFake
-            .map((item) => {
-                return `<div><a href="/project/${item.id}">${item.name}</a></div>`;
-            })
-            .join("")}
+    ${projects.map((project) => `${ProjectItem({ project })}`).join("")}
     </div>
     `;
 };
