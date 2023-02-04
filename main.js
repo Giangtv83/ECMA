@@ -1,4 +1,5 @@
-import './style.css'
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle.min";
 
 import HomePage from './src/pages/home';
 import AboutPage from './src/pages/about';

@@ -3,6 +3,8 @@ const menus = [
     { id: 1, name: "Du an", link: "/projects" },
     { id: 3, name: "Bai viet", link: "/posts" },
     { id: 4, name: "Lien he", link: "/contact" },
+    { id: 5, name: "Admin", link: "/admin/projects" },
+    { id: 6, name: "Add", link: "/admin/projects/add" },
 ];
 
 const projects = [
