@@ -1,9 +1,11 @@
-import { projectsFake } from "../data";
+import Header from "../components/Header";
+import { projects } from "../data";
 
 const ProjectDetailPage = ({ data: { projectId } }) => {
-    const currentProject = projectsFake.find((project) => project.id == projectId);
+    const currentProject = projects.find((project) => project.id == projectId);
     if (!currentProject) return `Loading...`;
     return `
+    ${Header()}
     <h1>Project Detail page</h1>
     ${currentProject.name}
     <hr/>

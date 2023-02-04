@@ -9,6 +9,8 @@ import PostsPage from './src/pages/posts';
 import ProjectDetailPage from './src/pages/project-detail';
 import ProjectPage from './src/pages/projects';
 import { render, router } from './src/lib';
+import AdminProjectsPage from './src/pages/admin/projects';
+import AdminProjectAddPage from './src/pages/admin/projects-add';
 
 
 const app = document.querySelector("#app");
@@ -23,5 +25,7 @@ router.on("/projects", () => render(ProjectPage, app));
 router.on("/project/:projectId", (params) => render(ProjectDetailPage(params), app));
 router.notFound(() => render(NotFoundPage, app));
 
+router.on("/admin/projects", () => render(AdminProjectsPage, app));
+router.on("/admin/projects/add", () => render(AdminProjectAddPage, app));
 
 router.resolve();
