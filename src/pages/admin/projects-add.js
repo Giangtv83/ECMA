@@ -1,27 +1,24 @@
-import { useEffect, router } from "../../lib";
-// import { projects } from "../../data";
-
+import { addProject } from "@/api/project";
+import { useEffect, router } from "@/lib";
+import axios from "axios";
 const AdminProjectAddPage = () => {
-    const projects = JSON.parse(localStorage.getItem("projects")) || [];
-
     useEffect(() => {
         const form = document.querySelector("#form-add");
         const projectName = document.querySelector("#project-name");
         const projectAuthor = document.querySelector("#project-author");
 
-        form.addEventListener("submit", function (e) {
+        form.addEventListener("submit", async (e) => {
             e.preventDefault(); // disable reload
-
-            const project = {
-                id: projects.length + 1,
-                name: projectName.value,
-                author: projectAuthor.value,
-            };
-
-            projects.push(project);
-
-            localStorage.setItem("projects", JSON.stringify(projects));
-            router.navigate("/admin/projects");
+            try {
+                const formData = {
+                    name: projectName.value,
+                    author: projectAuthor.value,
+                };
+                await addProject(formData);
+                router.navigate("/admin/projects");
+            } catch (error) {
+                console.log(error);
+            }
         });
     });
     return `<div>
